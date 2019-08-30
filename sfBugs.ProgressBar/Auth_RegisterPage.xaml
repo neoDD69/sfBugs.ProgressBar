@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             mc:Ignorable="d"
+              Title="Register"
+             x:Class="sfBugs.ProgressBar.Auth_RegisterPage">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="1">
+                <StackLayout  HorizontalOptions="FillAndExpand">
+                    <!--<Label Text="Registrati a 4D Notes" HorizontalOptions="CenterAndExpand" FontSize="Large"/>-->
+
+                    <progressBar:SfStepProgressBar x:Name="stepProgressBar" HorizontalOptions="Center" VerticalOptions="Center">
+                        <progressBar:StepView PrimaryText="I tuoi dati" Status="InProgress"/>
+                        <progressBar:StepView PrimaryText="Email"/>
+                        <progressBar:StepView PrimaryText="Password"/>
+                        <progressBar:StepView PrimaryText="Registrato!"/>
+                    </progressBar:SfStepProgressBar>
+
+                    
+                    
+                    <!--STEP 1-->
+
+                    <StackLayout x:Name="step1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                        <StackLayout Orientation="Vertical" >
+                            <Entry x:Name="userFirstName"  Placeholder="inserisci il tuo Nome" FontSize="Medium"   HorizontalOptions="CenterAndExpand" />
+                            <Entry x:Name="userLastName" Placeholder="inserisci il tuo Cognome "  FontSize="Medium" HorizontalOptions="FillAndExpand" />
+                        </StackLayout>
+                        <Button Clicked="BtnStepForward_Clicked" Text="&gt;" BackgroundColor="Green"  HorizontalOptions="End"  WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
+                    </StackLayout>
+
+                    
+                    
+                    
+                    <!--STEP 2-->
+                    <StackLayout x:Name="step2" Orientation="Horizontal"  HorizontalOptions="FillAndExpand" IsVisible="False">
+                        <Button Clicked="BtnStepBack_Clicked" Text="&lt;" BackgroundColor="Gray" HorizontalOptions="Start" WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Entry x:Name="userEmail" Text="" Placeholder="inserisci la tua email" FontSize="Medium"  Keyboard="Email"/>
+                        </StackLayout>
+                        <Button Clicked="BtnStepForward_Clicked" Text="&gt;" BackgroundColor="Green"  HorizontalOptions="End" WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
+                    </StackLayout>
+
+
+                    <!--STEP 3-->
+                    <StackLayout x:Name="step3" Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="False">
+                        <Button Clicked="BtnStepBack_Clicked" Text="&lt;" BackgroundColor="Gray" HorizontalOptions="Start"  WidthRequest="40" VerticalOptions="Center"></Button>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Entry x:Name="userPwd" Text="" Placeholder="Password" FontSize="Medium" IsPassword="True" HorizontalOptions="CenterAndExpand"/>
+                            <Entry x:Name="userPwdConfirm" Text="" Placeholder="Conferma Password" FontSize="Medium" IsPassword="True" HorizontalOptions="CenterAndExpand"/>
+                            <Button x:Name="btnLogon" Text="Registrati" BackgroundColor="OrangeRed" HeightRequest="40"></Button>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label x:Name ="lblErrors" IsVisible="False" Text="errors" TextColor="Red" FontSize="Default" />
+                    <Button x:Name="btnCancel" Text="Cancel"></Button>
+
+                </StackLayout>
+            </ScrollView>
+
+            <!--HEADER-->
+            <Grid BackgroundColor="{StaticResource primaryColor}"  HorizontalOptions="Fill" Margin="0" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Text="Register" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
