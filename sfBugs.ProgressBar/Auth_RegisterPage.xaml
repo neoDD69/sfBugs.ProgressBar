@@ -11,9 +11,20 @@
         <Grid HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ScrollView Grid.Row="1">
+
+            <!--HEADER-->
+            <Grid BackgroundColor="{StaticResource primaryColor}"  HorizontalOptions="Fill" Margin="0" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Text="Register" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+            </Grid>
+            
+            <!--MAIN-->
+            <ScrollView Grid.Row="2">
                 <StackLayout  HorizontalOptions="FillAndExpand">
                     <!--<Label Text="Registrati a 4D Notes" HorizontalOptions="CenterAndExpand" FontSize="Large"/>-->
 
@@ -25,37 +36,33 @@
                     </progressBar:SfStepProgressBar>
 
                     
-                    
                     <!--STEP 1-->
-
-                    <StackLayout x:Name="step1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                        <StackLayout Orientation="Vertical" >
-                            <Entry x:Name="userFirstName"  Placeholder="inserisci il tuo Nome" FontSize="Medium"   HorizontalOptions="CenterAndExpand" />
+                    <StackLayout x:Name="step1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Entry x:Name="userFirstName"  Placeholder="inserisci il tuo Nome" FontSize="Medium"   HorizontalOptions="FillAndExpand" />
                             <Entry x:Name="userLastName" Placeholder="inserisci il tuo Cognome "  FontSize="Medium" HorizontalOptions="FillAndExpand" />
                         </StackLayout>
-                        <Button Clicked="BtnStepForward_Clicked" Text="&gt;" BackgroundColor="Green"  HorizontalOptions="End"  WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
+                        <Button Clicked="BtnStepForward_Clicked" Text="&gt;" BackgroundColor="{StaticResource primaryColor}"  HorizontalOptions="End"  WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
                     </StackLayout>
 
                     
-                    
-                    
                     <!--STEP 2-->
                     <StackLayout x:Name="step2" Orientation="Horizontal"  HorizontalOptions="FillAndExpand" IsVisible="False">
-                        <Button Clicked="BtnStepBack_Clicked" Text="&lt;" BackgroundColor="Gray" HorizontalOptions="Start" WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
-                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                        <Button Clicked="BtnStepBack_Clicked" Text="&lt;" BackgroundColor="{StaticResource secondaryColor}" HorizontalOptions="Start" WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                             <Entry x:Name="userEmail" Text="" Placeholder="inserisci la tua email" FontSize="Medium"  Keyboard="Email"/>
                         </StackLayout>
-                        <Button Clicked="BtnStepForward_Clicked" Text="&gt;" BackgroundColor="Green"  HorizontalOptions="End" WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
+                        <Button Clicked="BtnStepForward_Clicked" Text="&gt;" BackgroundColor="{StaticResource primaryColor}"  HorizontalOptions="End" WidthRequest="40" VerticalOptions="CenterAndExpand"></Button>
                     </StackLayout>
 
 
                     <!--STEP 3-->
                     <StackLayout x:Name="step3" Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="False">
-                        <Button Clicked="BtnStepBack_Clicked" Text="&lt;" BackgroundColor="Gray" HorizontalOptions="Start"  WidthRequest="40" VerticalOptions="Center"></Button>
-                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
-                            <Entry x:Name="userPwd" Text="" Placeholder="Password" FontSize="Medium" IsPassword="True" HorizontalOptions="CenterAndExpand"/>
-                            <Entry x:Name="userPwdConfirm" Text="" Placeholder="Conferma Password" FontSize="Medium" IsPassword="True" HorizontalOptions="CenterAndExpand"/>
-                            <Button x:Name="btnLogon" Text="Registrati" BackgroundColor="OrangeRed" HeightRequest="40"></Button>
+                        <Button Clicked="BtnStepBack_Clicked" Text="&lt;" BackgroundColor="{StaticResource secondaryColor}" HorizontalOptions="Start"  WidthRequest="40" VerticalOptions="Center"></Button>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Entry x:Name="userPwd" Text="" Placeholder="Password" FontSize="Medium" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                            <Entry x:Name="userPwdConfirm" Text="" Placeholder="Conferma Password" FontSize="Medium" IsPassword="True" HorizontalOptions="FillAndExpand"/>
+                            <Button x:Name="btnLogon" Text="Registrati" BackgroundColor="{StaticResource primaryColor}" HeightRequest="40" HorizontalOptions="FillAndExpand"></Button>
                         </StackLayout>
                     </StackLayout>
 
@@ -64,14 +71,13 @@
 
                 </StackLayout>
             </ScrollView>
-
-            <!--HEADER-->
-            <Grid BackgroundColor="{StaticResource primaryColor}"  HorizontalOptions="Fill" Margin="0" Padding="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label  Text="Register" FontSize="Large" HorizontalOptions="FillAndExpand"/>
-            </Grid>
+            
+            <!--TEST-->
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding UseAsync}"/>
+                <Label Text="Use Async call"/>
+            </StackLayout>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>
